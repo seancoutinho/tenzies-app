@@ -1,38 +1,57 @@
+body {
+  font-family: "Karla" Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color: beige;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+}
+
+.title {
+  font-size: 54px;
+}
+
+.instructions {
+  font-size: 18px;
+}
+
+.dice-container {
+  display: grid;
+  grid-template: 100px 100px / repeat(5, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;;
+
+}
+
+.dice {
+  display: flex;
+  align-self: center;
+  text-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-radius: 5px;
+  height: 5rem;
+  width: 5rem;
+  font-size: 45px;
+  font-weight: 700;
+  background-color: white;
+
+}
+
+.roll {
+  height: 4.5rem;
+  width: 10rem;
+  font-size: 24px;
+  letter-spacing: .1rem;
   color: white;
+  background-color: darkcyan;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.roll:active {
+  box-shadow: inset 5px 5px 5px 5px rgba(0, 0, 0, 0.7)
 }

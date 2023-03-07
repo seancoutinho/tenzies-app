@@ -25,6 +25,10 @@ function App() {
     return arrOfDice;
   }
 
+  function rollDice() {
+    setDice(allNewDice());
+  }
+
   const diceElements = dice.map(die => {
     return <Die key={die.id} value={die.value} isHeld={die.isHeld} />;
   })
@@ -36,7 +40,7 @@ function App() {
       <div className='dice-container'>
         {diceElements}
       </div>
-      <button className='roll'>Roll</button>
+      <button onClick={rollDice} className='roll'>Roll</button>
     </div>
   );
 }

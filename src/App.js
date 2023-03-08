@@ -37,6 +37,8 @@ function App() {
   }
 
   function rollDice() {
+    gameState ? setDice(allNewDice(),
+    setGameState(false)): 
     setDice((oldDice) =>
       oldDice.map((die) => {
         return die.isHeld
@@ -75,7 +77,7 @@ function App() {
       </p>
       <div className="dice-container">{diceElements}</div>
       <button onClick={rollDice} className="roll">
-        Roll
+        {gameState ? "New Game" : "Roll"}
       </button>
       {gameState && (
         <h1 className="won">

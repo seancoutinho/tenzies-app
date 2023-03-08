@@ -8,7 +8,7 @@ function App() {
   //*********STATE VARIABLES********
   //An array of dice objects
   const [dice, setDice] = useState(allNewDice)
-
+  
   function generateNewDice() {
     return {
       value: Math.ceil(Math.random() * 6),
@@ -29,8 +29,17 @@ function App() {
     setDice(allNewDice());
   }
 
+  function holdDice(id) {
+    setDice(oldDice => oldDice.map(die => {
+        return die.id === id ? 
+            {...die, isHeld: !die.isHeld} :
+            die
+    }))
+}
+
+
   const diceElements = dice.map(die => {
-    return <Die key={die.id} value={die.value} isHeld={die.isHeld} />;
+    return <Die key={die.id} value={die.value} isHeld={die.isHeld} holdDice={() => holdDice(die.id)}/>;
   })
 
   return (

@@ -26,8 +26,12 @@ function App() {
   }
 
   function rollDice() {
-    setDice(allNewDice());
+    setDice(oldDice => oldDice.map(die => {
+      return die.isHeld ? die : 
+      {...die, value: Math.ceil(Math.random() *6), id: nanoid()}
+    }));
   }
+  
 
   function holdDice(id) {
     setDice(oldDice => oldDice.map(die => {
